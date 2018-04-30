@@ -1,3 +1,4 @@
+#-------------ANAGRAMS----------------
 #Given two strings, check to see if they are anagrams. 
 #An anagram is when the two strings can be written using the exact same 
 #letters (so you can just rearrange the letters to get a different phrase or word).
@@ -29,3 +30,34 @@ def anagram(s1,s2):
             return False
         
     return True
+
+
+#--------ARRAY-PAIR-SUMS-------------------
+#Given an integer array, output all the unique pairs that sum up to a specific value k.
+#So the input:
+#pair_sum([1,3,2,2],4)
+#would return 2 pairs:
+# (1,3)
+# (2,2)
+#Note: for testing purposes, number of pairs output instead of the actual pairs
+    
+def pair_sum(arr,k):
+    if len(arr)<2:
+        return
+    
+    seen = set()
+    output = set()
+    
+    for i in arr:
+        
+        x = k - i
+        
+        if x not in seen:
+            seen.add(i)
+            
+        else:
+            output.add((min(i,x), max(i,x)))
+    
+    lst = list(output)
+                
+    return len(lst)
