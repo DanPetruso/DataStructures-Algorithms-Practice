@@ -61,3 +61,37 @@ def pair_sum(arr,k):
     lst = list(output)
                 
     return len(lst)
+
+
+
+
+
+
+
+##-----------------STRING-COMPRESSION----------------------
+#Given a string in the form 'AAAABBBBCCCCCDDEEEE' compress it to become 'A4B4C5D2E4'.
+#For this problem, you can falsely "compress" strings of single or double letters. For instance,
+#it is okay for 'AAB' to return 'A2B1' even though this technically takes more space.
+#The function should also be case sensitive, so that a string 'AAAaaa' returns 'A3a3'.
+
+def compress(s):
+    comp = ""
+    
+    if len(s) == 0:
+        return ""
+    
+    if len(s) == 1:
+        return s + str(1)
+    c = 1
+    i = 1
+    while i < len(s):
+        if s[i] == s[i-1]:
+            c += 1
+        else:
+            comp += str(s[i-1]) + str(c)
+            c = 1
+        i+=1
+    comp += str(s[i-1]) + str(c)
+            
+    print(comp)
+    return comp
