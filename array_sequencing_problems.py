@@ -1,4 +1,4 @@
-#-------------ANAGRAMS----------------
+#-----------------------ANAGRAMS--------------------------
 #Given two strings, check to see if they are anagrams. 
 #An anagram is when the two strings can be written using the exact same 
 #letters (so you can just rearrange the letters to get a different phrase or word).
@@ -32,7 +32,7 @@ def anagram(s1,s2):
     return True
 
 
-#--------ARRAY-PAIR-SUMS-------------------
+#------------------ARRAY-PAIR-SUMS---------------------------
 #Given an integer array, output all the unique pairs that sum up to a specific value k.
 #So the input:
 #pair_sum([1,3,2,2],4)
@@ -64,10 +64,6 @@ def pair_sum(arr,k):
 
 
 
-
-
-
-
 ##-----------------STRING-COMPRESSION----------------------
 #Given a string in the form 'AAAABBBBCCCCCDDEEEE' compress it to become 'A4B4C5D2E4'.
 #For this problem, you can falsely "compress" strings of single or double letters. For instance,
@@ -95,3 +91,23 @@ def compress(s):
             
     print(comp)
     return comp
+
+
+
+##-----------------------UNIQUE-CHARS-IN-STRING---------------------------
+#Given a string,determine if it is compreised of all unique characters. 
+#For example, the string 'abcde' has all unique characters and should return True. 
+#The string 'aabcde' contains duplicate characters and should return false.
+
+def uni_char(s):
+    check = []
+    s = list(s)
+    for i in s:
+        if i in check:
+            return False
+        else:
+            check.append(i)
+    return True
+
+def uni_char2(s):
+    return len(set(s)) == len(s)
