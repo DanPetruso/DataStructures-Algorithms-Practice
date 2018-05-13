@@ -21,3 +21,32 @@ def inorder(tree):
         print(tree.val)
         inorder(tree.right)
         
+
+#-------------------------TREE-LEVEL-ORDER-PRINT----------------------
+import collections
+
+def levelOrderPrint(tree):
+    if not tree:
+        return None
+    nodes = collections.deque([tree])
+    
+    currCount = 1
+    nextCount = 0
+    while len(nodes) != 0:
+        currentNode = nodes.popleft()
+        currCount += 1
+        print(currentNode.val,)
+        
+        if currentNode.left:
+            nodes.append(currentNode.left)
+            nextCount += 1
+            
+        if currentNode.right:
+            nodes.append(currentNode.right)
+            nextCount += 1
+            
+        if currCount == 0:
+            print('/n')
+            currCount = nextCount
+            nextCount = 0
+    
