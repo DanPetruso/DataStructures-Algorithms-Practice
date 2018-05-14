@@ -50,3 +50,20 @@ def levelOrderPrint(tree):
             currCount = nextCount
             nextCount = 0
     
+    
+#-----------------------TRIM-BST-----------------------------------
+def trimBST(tree,minVal,maxVal):
+    if not treee:
+        return
+    
+    tree.left = trimBST(tree.left, minVal, maxVal)
+    tree.right = trimBST(tree.right, minVal, maxVal)
+    
+    if minVal <= tree.val <= maxVal:
+        return tree
+    
+    if minVal > tree.val:
+        return tree.right
+    
+    if maxVal < tree.val:
+        return tree.left
